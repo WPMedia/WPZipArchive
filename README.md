@@ -54,7 +54,7 @@ WPZipArchive is protected under the [MIT license](https://github.com/samsoffes/s
 
 ## Acknowledgments
 
-* [@soffes](https://github.com/soffes) for creating SSZipArchive
+* [@soffes](https://github.com/soffes) for creating [SSZipArchive](https://github.com/ZipArchive/ZipArchive).
 * [aish](http://code.google.com/p/ziparchive) for creating [ZipArchive](http://code.google.com/p/ziparchive), the project that inspired SSZipArchive.
-* [@randomsequence](https://github.com/randomsequence) for implementing the creation support tech
+* [@randomsequence](https://github.com/randomsequence) for implementing the creation support tech.
 * [@johnezang](https://github.com/johnezang) for help along the way.
