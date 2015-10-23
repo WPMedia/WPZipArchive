@@ -6,13 +6,13 @@
 //  Copyright (c) 2011-2014 Sam Soffes. All rights reserved.
 //
 
-#import <SSZipArchive/SSZipArchive.h>
+#import <WPZipArchive/WPZipArchive.h>
 #import <XCTest/XCTest.h>
 #import <CommonCrypto/CommonDigest.h>
 
 #import "CollectingDelegate.h"
 
-@interface CancelDelegate : NSObject <SSZipArchiveDelegate>
+@interface CancelDelegate : NSObject <WPZipArchiveDelegate>
 @property (nonatomic, assign) int numFilesUnzipped;
 @property (nonatomic, assign) int numFilesToUnzip;
 @property (nonatomic, assign) BOOL didUnzipArchive;
@@ -41,7 +41,7 @@
 }
 @end
 
-@interface SSZipArchiveTests : XCTestCase <SSZipArchiveDelegate>
+@interface SSZipArchiveTests : XCTestCase <WPZipArchiveDelegate>
 @end
 
 @implementation SSZipArchiveTests {
@@ -68,7 +68,7 @@
     NSString *outputPath = [self _cachesPath:@"Zipped"];
 
     NSString *archivePath = [outputPath stringByAppendingPathComponent:@"CreatedArchive.zip"];
-    [SSZipArchive createZipFileAtPath:archivePath withFilesAtPaths:inputPaths];
+    [WPZipArchive createZipFileAtPath:archivePath withFilesAtPaths:inputPaths];
 
     // TODO: Make sure the files are actually unzipped. They are, but the test should be better.
     XCTAssertTrue([[NSFileManager defaultManager] fileExistsAtPath:archivePath], @"Archive created");
@@ -82,7 +82,7 @@
     NSString *outputPath = [self _cachesPath:@"FolderZipped"];
     NSString *archivePath = [outputPath stringByAppendingPathComponent:@"ArchiveWithFolders.zip"];
 
-    [SSZipArchive createZipFileAtPath:archivePath withContentsOfDirectory:inputPath];
+    [WPZipArchive createZipFileAtPath:archivePath withContentsOfDirectory:inputPath];
     XCTAssertTrue([[NSFileManager defaultManager] fileExistsAtPath:archivePath], @"Folder Archive created");
 }
 
@@ -106,7 +106,7 @@
         // Zipping
         NSString *archivePath = [outputPath stringByAppendingPathComponent:[NSString stringWithFormat:@"queue_test_%d.zip",test]];
 
-        [SSZipArchive createZipFileAtPath:archivePath withFilesAtPaths:inputPaths];
+        [WPZipArchive createZipFileAtPath:archivePath withFilesAtPaths:inputPaths];
 
         long long threshold = 510000; // 510kB:size slightly smaller than a successful zip, but much larger than a failed one
         long long fileSize = [[[NSFileManager defaultManager] attributesOfItemAtPath:archivePath error:nil][NSFileSize] longLongValue];
@@ -119,7 +119,7 @@
     NSString *zipPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"TestArchive" ofType:@"zip"];
     NSString *outputPath = [self _cachesPath:@"Regular"];
 
-    [SSZipArchive unzipFileAtPath:zipPath toDestination:outputPath delegate:self];
+    [WPZipArchive unzipFileAtPath:zipPath toDestination:outputPath delegate:self];
 
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *testPath = [outputPath stringByAppendingPathComponent:@"Readme.markdown"];
@@ -132,7 +132,7 @@
     NSString *zipPath = [[NSBundle bundleForClass: [self class]] pathForResource:@"TestArchive" ofType:@"zip"];
     NSString *outputPath = [self _cachesPath:@"Regular"];
 
-    [SSZipArchive unzipFileAtPath:zipPath toDestination:outputPath delegate:self];
+    [WPZipArchive unzipFileAtPath:zipPath toDestination:outputPath delegate:self];
 
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *testPath = [outputPath stringByAppendingPathComponent:@"Readme.markdown"];
@@ -147,7 +147,7 @@
 
     [progressEvents removeAllObjects];
 
-    [SSZipArchive unzipFileAtPath:zipPath toDestination:outputPath delegate:self];
+    [WPZipArchive unzipFileAtPath:zipPath toDestination:outputPath delegate:self];
 
     // 4 events: the first, then for each of the two files one, then the final event
     XCTAssertTrue(4 == [progressEvents count], @"Expected 4 progress events");
@@ -163,7 +163,7 @@
     NSString *outputPath = [self _cachesPath:@"Password"];
 
     NSError *error = nil;
-    [SSZipArchive unzipFileAtPath:zipPath toDestination:outputPath overwrite:YES password:@"passw0rd" error:&error delegate:self];
+    [WPZipArchive unzipFileAtPath:zipPath toDestination:outputPath overwrite:YES password:@"passw0rd" error:&error delegate:self];
 
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString *testPath = [outputPath stringByAppendingPathComponent:@"Readme.markdown"];
@@ -178,7 +178,7 @@
     NSString* zipPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"IncorrectHeaders" ofType:@"zip"];
     NSString* outputPath = [self _cachesPath:@"IncorrectHeaders"];
 
-    [SSZipArchive unzipFileAtPath:zipPath toDestination:outputPath delegate:self];
+    [WPZipArchive unzipFileAtPath:zipPath toDestination:outputPath delegate:self];
 
     NSString* intendedReadmeTxtMD5 = @"31ac96301302eb388070c827447290b5";
 
@@ -195,7 +195,7 @@
     NSString* zipPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"SymbolicLink" ofType:@"zip"];
     NSString* outputPath = [self _cachesPath:@"SymbolicLink"];
 
-    [SSZipArchive unzipFileAtPath:zipPath toDestination:outputPath delegate:self];
+    [WPZipArchive unzipFileAtPath:zipPath toDestination:outputPath delegate:self];
 
     NSString *testSymlink = [outputPath stringByAppendingPathComponent:@"SymbolicLink/Xcode.app"];
 
@@ -211,7 +211,7 @@
     NSString* zipPath = [[NSBundle bundleForClass:[self class]] pathForResource:resourceName ofType:@"zip"];
     NSString* outputPath = [self _cachesPath:resourceName];
 
-    [SSZipArchive unzipFileAtPath:zipPath toDestination:outputPath delegate:self];
+    [WPZipArchive unzipFileAtPath:zipPath toDestination:outputPath delegate:self];
 
     // Determine where the symlinks are
     NSString *subfolderName = @"symlinks";
@@ -233,7 +233,7 @@
     NSString* zipPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"Unicode" ofType:@"zip"];
     NSString* outputPath = [self _cachesPath:@"Unicode"];
 
-    [SSZipArchive unzipFileAtPath:zipPath toDestination:outputPath delegate:self];
+    [WPZipArchive unzipFileAtPath:zipPath toDestination:outputPath delegate:self];
 
     bool unicodeFilenameWasExtracted = [[NSFileManager defaultManager] fileExistsAtPath:[outputPath stringByAppendingPathComponent:@"Accént.txt"]];
 
@@ -254,8 +254,8 @@
     NSString *outputPath = [self _cachesPath:@"ZippedDate"];
     NSString *archivePath = [outputPath stringByAppendingPathComponent:@"CreatedArchive.zip"];
 
-    [SSZipArchive createZipFileAtPath:archivePath withFilesAtPaths:inputPaths];
-    [SSZipArchive unzipFileAtPath:archivePath toDestination:outputPath delegate:self];
+    [WPZipArchive createZipFileAtPath:archivePath withFilesAtPaths:inputPaths];
+    [WPZipArchive unzipFileAtPath:archivePath toDestination:outputPath delegate:self];
 
     NSDictionary *createdFileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:[outputPath stringByAppendingPathComponent:@"Readme.markdown"] error:nil];
 
@@ -285,13 +285,13 @@
     NSString *archivePath = [outputDir stringByAppendingPathComponent:@"TestAppArchive.zip"];
 
     // Create the zip file using the contents of the .app file as the input
-    [SSZipArchive createZipFileAtPath:archivePath withContentsOfDirectory:inputFile];
+    [WPZipArchive createZipFileAtPath:archivePath withContentsOfDirectory:inputFile];
 
 
     /********** Un-zipping *******/
 
     // Using this newly created zip file, unzip it
-    [SSZipArchive unzipFileAtPath:archivePath toDestination:outputDir];
+    [WPZipArchive unzipFileAtPath:archivePath toDestination:outputDir];
 
     // Get the path to the target file after unzipping
     NSString *targetFilePath = [outputDir stringByAppendingPathComponent:@"/Contents/MacOS/TestProject"];
@@ -310,7 +310,7 @@
     CancelDelegate *delegate = [[CancelDelegate alloc] init];
     delegate.numFilesToUnzip = 1;
 
-    [SSZipArchive unzipFileAtPath:zipPath toDestination:outputPath delegate:delegate];
+    [WPZipArchive unzipFileAtPath:zipPath toDestination:outputPath delegate:delegate];
 
     XCTAssertEqual(delegate.numFilesUnzipped, 1);
     XCTAssertFalse(delegate.didUnzipArchive);
@@ -321,7 +321,7 @@
     delegate = [[CancelDelegate alloc] init];
     delegate.numFilesToUnzip = 1000;
 
-    [SSZipArchive unzipFileAtPath:zipPath toDestination:outputPath delegate:delegate];
+    [WPZipArchive unzipFileAtPath:zipPath toDestination:outputPath delegate:delegate];
 
     XCTAssertEqual(delegate.numFilesUnzipped, 2);
     XCTAssertTrue(delegate.didUnzipArchive);
@@ -344,13 +344,13 @@
     NSString *zipPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"TestArchive" ofType:@"zip"];
    	NSString *outputPath = [self _cachesPath:@"Regular"];
 
-   	[SSZipArchive unzipFileAtPath:zipPath toDestination:outputPath delegate:collector];
+   	[WPZipArchive unzipFileAtPath:zipPath toDestination:outputPath delegate:collector];
 
     //    STAssertEqualObjects([collector.files objectAtIndex:0], @"LICENSE.txt", nil);
     //    STAssertEqualObjects([collector.files objectAtIndex:1], @"README.md", nil);
 }
 
-#pragma mark - SSZipArchiveDelegate
+#pragma mark - WPZipArchiveDelegate
 
 - (void)zipArchiveWillUnzipArchiveAtPath:(NSString *)path zipInfo:(unz_global_info)zipInfo {
     NSLog(@"*** zipArchiveWillUnzipArchiveAtPath: `%@` zipInfo:", path);
@@ -386,7 +386,7 @@
 
 - (NSString *)_cachesPath:(NSString *)directory {
     NSString *path = [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject]
-                      stringByAppendingPathComponent:@"com.samsoffes.ssziparchive.tests"];
+                      stringByAppendingPathComponent:@"com.wapo.wpziparchive.tests"];
     if (directory) {
         path = [path stringByAppendingPathComponent:directory];
     }

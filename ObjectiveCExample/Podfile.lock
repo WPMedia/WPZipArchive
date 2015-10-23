@@ -1,14 +1,14 @@
 PODS:
-  - SSZipArchive (0.3.2)
+  - WPZipArchive (1.0.0)
 
 DEPENDENCIES:
-  - SSZipArchive (from `..`)
+  - WPZipArchive (from `..`)
 
 EXTERNAL SOURCES:
-  SSZipArchive:
+  WPZipArchive:
     :path: ".."
 
 SPEC CHECKSUMS:
-  SSZipArchive: 0f61dba1ab479a636f095aaf75a6cdafb5ff9d0c
+  WPZipArchive: 8712193ba05020e0386386ba495e94dce1c37e35
 
 COCOAPODS: 0.39.0

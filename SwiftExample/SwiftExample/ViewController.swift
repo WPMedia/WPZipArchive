@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SSZipArchive
+import WPZipArchive
 
 class ViewController: UIViewController {
 
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         let sampleDataPath = NSBundle.mainBundle().bundleURL.URLByAppendingPathComponent("Sample Data").path
         zipPath = tempZipPath()
 
-        let success = SSZipArchive.createZipFileAtPath(zipPath, withContentsOfDirectory: sampleDataPath)
+        let success = WPZipArchive.createZipFileAtPath(zipPath, withContentsOfDirectory: sampleDataPath)
         if success {
             unzipButton.enabled = true
             zipButton.enabled = false
@@ -53,7 +53,7 @@ class ViewController: UIViewController {
             return
         }
 
-        let success = SSZipArchive.unzipFileAtPath(zipPath, toDestination: unzipPath)
+        let success = WPZipArchive.unzipFileAtPath(zipPath, toDestination: unzipPath)
         if !success {
             return
         }

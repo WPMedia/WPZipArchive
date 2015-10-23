@@ -5,23 +5,27 @@
 //  Created by Sam Soffes on 7/21/10.
 //  Copyright (c) Sam Soffes 2010-2015. All rights reserved.
 //
+//  Modified by Sean Soper 10/23/2015.
+//  * Changed namespacing to WP
+//  * Ensured compilation for Swift
+//
 
-#ifndef _SSZIPARCHIVE_H
-#define _SSZIPARCHIVE_H
+#ifndef _WPZIPARCHIVE_H
+#define _WPZIPARCHIVE_H
 
 #import <Foundation/Foundation.h>
 #include "Common.h"
 
-@protocol SSZipArchiveDelegate;
+@protocol WPZipArchiveDelegate;
 
-@interface SSZipArchive : NSObject
+@interface WPZipArchive : NSObject
 
 // Unzip
 + (BOOL)unzipFileAtPath:(NSString *)path toDestination:(NSString *)destination;
-+ (BOOL)unzipFileAtPath:(NSString *)path toDestination:(NSString *)destination delegate:(id<SSZipArchiveDelegate>)delegate;
++ (BOOL)unzipFileAtPath:(NSString *)path toDestination:(NSString *)destination delegate:(id<WPZipArchiveDelegate>)delegate;
 
 + (BOOL)unzipFileAtPath:(NSString *)path toDestination:(NSString *)destination overwrite:(BOOL)overwrite password:(NSString *)password error:(NSError **)error;
-+ (BOOL)unzipFileAtPath:(NSString *)path toDestination:(NSString *)destination overwrite:(BOOL)overwrite password:(NSString *)password error:(NSError **)error delegate:(id<SSZipArchiveDelegate>)delegate;
++ (BOOL)unzipFileAtPath:(NSString *)path toDestination:(NSString *)destination overwrite:(BOOL)overwrite password:(NSString *)password error:(NSError **)error delegate:(id<WPZipArchiveDelegate>)delegate;
 
 + (BOOL)unzipFileAtPath:(NSString *)path
 		  toDestination:(NSString *)destination
@@ -49,7 +53,7 @@
 
 @end
 
-@protocol SSZipArchiveDelegate <NSObject>
+@protocol WPZipArchiveDelegate <NSObject>
 
 @optional
 
@@ -66,4 +70,4 @@
 
 @end
 
-#endif /* _SSZIPARCHIVE_H */
+#endif /* _WPZIPARCHIVE_H */

@@ -14,7 +14,6 @@
 		8DFE19141BDA74F800709011 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DFE19131BDA74F800709011 /* Assets.xcassets */; };
 		8DFE19171BDA74F800709011 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DFE19151BDA74F800709011 /* LaunchScreen.storyboard */; };
 		8DFE19221BDA74F800709011 /* SwiftExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DFE19211BDA74F800709011 /* SwiftExampleTests.swift */; };
-		8DFE19421BDA7D8D00709011 /* mztools.c in Sources */ = {isa = PBXBuildFile; fileRef = 8DFE19391BDA7D8C00709011 /* mztools.c */; };
 		8DFE19471BDA82EA00709011 /* Sample Data in Resources */ = {isa = PBXBuildFile; fileRef = 8DFE19461BDA82EA00709011 /* Sample Data */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +28,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8D0FB4151BDAC6140030E0A4 /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		8D0FB4171BDAC6140030E0A4 /* crypt.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
+		8D0FB4181BDAC6140030E0A4 /* ioapi.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
+		8D0FB4191BDAC6140030E0A4 /* ioapi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
+		8D0FB41A1BDAC6140030E0A4 /* mztools.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
+		8D0FB41B1BDAC6140030E0A4 /* mztools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
+		8D0FB41C1BDAC6140030E0A4 /* unzip.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
+		8D0FB41D1BDAC6140030E0A4 /* unzip.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
+		8D0FB41E1BDAC6140030E0A4 /* zip.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
+		8D0FB41F1BDAC6140030E0A4 /* zip.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
+		8D0FB4201BDAC6140030E0A4 /* WPZipArchive.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WPZipArchive.h; sourceTree = "<group>"; };
+		8D0FB4211BDAC6140030E0A4 /* WPZipArchive.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WPZipArchive.m; sourceTree = "<group>"; };
 		8DFE19091BDA74F800709011 /* SwiftExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DFE190C1BDA74F800709011 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DFE190E1BDA74F800709011 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,18 +50,6 @@
 		8DFE191D1BDA74F800709011 /* SwiftExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DFE19211BDA74F800709011 /* SwiftExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftExampleTests.swift; sourceTree = "<group>"; };
 		8DFE19231BDA74F800709011 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8DFE19341BDA7D8C00709011 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
-		8DFE19361BDA7D8C00709011 /* crypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypt.h; sourceTree = "<group>"; };
-		8DFE19371BDA7D8C00709011 /* ioapi.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ioapi.c; sourceTree = "<group>"; };
-		8DFE19381BDA7D8C00709011 /* ioapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ioapi.h; sourceTree = "<group>"; };
-		8DFE19391BDA7D8C00709011 /* mztools.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = mztools.c; sourceTree = "<group>"; };
-		8DFE193A1BDA7D8C00709011 /* mztools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mztools.h; sourceTree = "<group>"; };
-		8DFE193B1BDA7D8C00709011 /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
-		8DFE193C1BDA7D8C00709011 /* unzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unzip.h; sourceTree = "<group>"; };
-		8DFE193D1BDA7D8C00709011 /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
-		8DFE193E1BDA7D8C00709011 /* zip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = zip.h; sourceTree = "<group>"; };
-		8DFE193F1BDA7D8C00709011 /* SSZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSZipArchive.h; sourceTree = "<group>"; };
-		8DFE19401BDA7D8D00709011 /* SSZipArchive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSZipArchive.m; sourceTree = "<group>"; };
 		8DFE19461BDA82EA00709011 /* Sample Data */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Sample Data"; sourceTree = "<group>"; };
 		9E81180168B01E0210FE1E3F /* Pods_SwiftExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDFB736C117CB42411E221E3 /* Pods-SwiftExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftExample/Pods-SwiftExample.release.xcconfig"; sourceTree = "<group>"; };
@@ -84,10 +83,38 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8D0FB4141BDAC6140030E0A4 /* WPZipArchive */ = {
+			isa = PBXGroup;
+			children = (
+				8D0FB4151BDAC6140030E0A4 /* Common.h */,
+				8D0FB4161BDAC6140030E0A4 /* minizip */,
+				8D0FB4201BDAC6140030E0A4 /* WPZipArchive.h */,
+				8D0FB4211BDAC6140030E0A4 /* WPZipArchive.m */,
+			);
+			name = WPZipArchive;
+			path = ../WPZipArchive;
+			sourceTree = "<group>";
+		};
+		8D0FB4161BDAC6140030E0A4 /* minizip */ = {
+			isa = PBXGroup;
+			children = (
+				8D0FB4171BDAC6140030E0A4 /* crypt.h */,
+				8D0FB4181BDAC6140030E0A4 /* ioapi.c */,
+				8D0FB4191BDAC6140030E0A4 /* ioapi.h */,
+				8D0FB41A1BDAC6140030E0A4 /* mztools.c */,
+				8D0FB41B1BDAC6140030E0A4 /* mztools.h */,
+				8D0FB41C1BDAC6140030E0A4 /* unzip.c */,
+				8D0FB41D1BDAC6140030E0A4 /* unzip.h */,
+				8D0FB41E1BDAC6140030E0A4 /* zip.c */,
+				8D0FB41F1BDAC6140030E0A4 /* zip.h */,
+			);
+			path = minizip;
+			sourceTree = "<group>";
+		};
 		8DFE19001BDA74F800709011 = {
 			isa = PBXGroup;
 			children = (
-				8DFE19331BDA7D8C00709011 /* SSZipArchive */,
+				8D0FB4141BDAC6140030E0A4 /* WPZipArchive */,
 				8DFE190B1BDA74F800709011 /* SwiftExample */,
 				8DFE19201BDA74F800709011 /* SwiftExampleTests */,
 				8DFE190A1BDA74F800709011 /* Products */,
@@ -126,34 +153,6 @@
 				8DFE19231BDA74F800709011 /* Info.plist */,
 			);
 			path = SwiftExampleTests;
-			sourceTree = "<group>";
-		};
-		8DFE19331BDA7D8C00709011 /* SSZipArchive */ = {
-			isa = PBXGroup;
-			children = (
-				8DFE19341BDA7D8C00709011 /* Common.h */,
-				8DFE193F1BDA7D8C00709011 /* SSZipArchive.h */,
-				8DFE19401BDA7D8D00709011 /* SSZipArchive.m */,
-				8DFE19351BDA7D8C00709011 /* minizip */,
-			);
-			name = SSZipArchive;
-			path = ../SSZipArchive;
-			sourceTree = "<group>";
-		};
-		8DFE19351BDA7D8C00709011 /* minizip */ = {
-			isa = PBXGroup;
-			children = (
-				8DFE19361BDA7D8C00709011 /* crypt.h */,
-				8DFE19371BDA7D8C00709011 /* ioapi.c */,
-				8DFE19381BDA7D8C00709011 /* ioapi.h */,
-				8DFE19391BDA7D8C00709011 /* mztools.c */,
-				8DFE193A1BDA7D8C00709011 /* mztools.h */,
-				8DFE193B1BDA7D8C00709011 /* unzip.c */,
-				8DFE193C1BDA7D8C00709011 /* unzip.h */,
-				8DFE193D1BDA7D8C00709011 /* zip.c */,
-				8DFE193E1BDA7D8C00709011 /* zip.h */,
-			);
-			path = minizip;
 			sourceTree = "<group>";
 		};
 		F5943061786EAFF4CAE16D45 /* Pods */ = {
@@ -317,7 +316,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DFE19421BDA7D8D00709011 /* mztools.c in Sources */,
 				8DFE190F1BDA74F800709011 /* ViewController.swift in Sources */,
 				8DFE190D1BDA74F800709011 /* AppDelegate.swift in Sources */,
 			);
