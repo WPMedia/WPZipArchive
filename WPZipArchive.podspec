@@ -8,6 +8,7 @@ Pod::Spec.new do |s|
   s.authors      = { 'Sean Soper' => 'sean.soper@gmail.com' }
   s.source       = { :git => 'https://github.com/WPMedia/WPZipArchive.git', :tag => s.version }
   s.ios.deployment_target = '4.3'
+  s.watchos.deployment_target = '2.0'
   s.osx.deployment_target = '10.6'
   s.source_files = 'WPZipArchive/*', 'WPZipArchive/minizip/*'
   s.public_header_files = 'WPZipArchive/*.h'
