@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'WPZipArchive'
-  s.version      = '0.0.1'
+  s.version      = '0.1.0'
   s.summary      = 'Utility class for zipping and unzipping files on iOS and Mac.'
   s.description  = 'WPZipArchive is a simple utility class for zipping and unzipping files on iOS and Mac.'
   s.homepage     = 'https://github.com/WPMedia/WPZipArchive'
